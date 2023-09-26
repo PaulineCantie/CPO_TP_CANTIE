@@ -19,9 +19,36 @@ public class ConvertisseurDeTemperature {
     Scanner sc;
         sc= new Scanner(System.in);
         
-    double ValeurR;
+    double tCelcius;
     System.out.println("Entrer une valeur reelle :");
-    ValeurR = sc.nextDouble();
+    tCelcius = sc.nextDouble();
+    tCelcius = tCelcius + 273.15;
+    System.out.println(tCelcius + " : est la temperature en Kelvin");
+    
+    double tKelvin;
+    tKelvin = CelciusVersKelvin (tCelcius);
+    System.out.println(" La temperature en Kelvin est de "+tKelvin);
     }
     
+    
+    
+public static double CelciusVersKelvin ( double ValeurR){  
+    double tKelvin;
+    tKelvin = ValeurR + 273.15;
+    return tKelvin;
+    
+    double tCelcius;
+    tCelcius = KelvinVersCelcius (tCelcius);
+    System.out.println(" La temperature en Kelvin est de "+tKelvin);
+    }
+    
+    
+    
+public static double KelvinVersCelcius ( double tCelcius){  
+    double tCelcius;
+    tCelcius = tCelcius - 273.15;
+    return tCelcius;
+    
+    }
+}
 }
