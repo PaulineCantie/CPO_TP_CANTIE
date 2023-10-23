@@ -4,6 +4,11 @@
  */
 package tp3_heroic_fantasy_cantie_pauline;
 
+import Armes.Arme;
+import Armes.Baton;
+import Armes.Epee;
+import java.util.ArrayList;
+
 /**
  *
  * @author canti
@@ -14,13 +19,21 @@ public class TP3_Heroic_fantasy_CANTIE_Pauline {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-class abstract Arme{
-    String nom;
-    String niveauAttaque;
-    String NOM = nom.toString();
-    String NIVEAU = niveauAttaque.toString();
-    
-}
-}
-    
+        Epee Epee1= new Epee( "Escalibur",  7, 5);
+        Epee Epee2= new Epee( "Durandal", 4, 7);
+        Baton Baton1= new Baton( "Chêne",  4, 5);
+        Baton Baton2= new Baton( "Charme",  5, 6);
+        ArrayList<Arme> armes= new ArrayList<>();
+        armes.add(Epee1);
+        armes.add(Epee2);
+        armes.add(Baton1);
+        armes.add(Baton2);
+        
+        for (int i=0; i < armes.size();i++){
+            Arme arme = armes.get(i);
+            System.out.println("Arme"+(i+1)+": "+arme);
+                    
+        }
+    }
+
 }

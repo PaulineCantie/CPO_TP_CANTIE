@@ -2,12 +2,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
+package Armes;
 
 /**
  *
  * @author canti
  */
-public abstract class Arme {
+    public abstract class Arme {
     String nom;
     int niveauAttaque;
     
@@ -19,5 +20,7 @@ public abstract class Arme {
     @Override
     public String toString (){
         return ("L'arme"+nom+ " a un niveau d'attaque"+niveauAttaque);
+    
+
     }
 }
