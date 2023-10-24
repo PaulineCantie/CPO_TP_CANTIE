@@ -18,8 +18,8 @@ public class Guerrier extends Personnage {
     public void setCheval(boolean cheval){
        this.cheval = cheval;
     }
-    public Guerrier(String nom, int niveauDeVie, boolean nomcheval) {
-        super(nom, niveauDeVie); 
-        nomcheval = cheval;
+    public Guerrier(String nom, int niveauDeVie, boolean noncheval) {
+        super(nom, niveauDeVie, noncheval); 
+        cheval = noncheval;
     }
 }
