@@ -20,6 +20,6 @@ public class Personnage {
     @Override 
     public String toString(){
         return (" Le nom du Magicien est "+ nom+"et il a un niveau d'attaque de"+niveau2Vie);
-    }
+    } 
   
 }
