@@ -18,7 +18,7 @@ public class Magicien extends Personnage{
         this.conf=conf;
     }
     public Magicien (String nom, int niveauDeVie, boolean nonconf){
-       super(nom, niveauDeVie);
-       nonconf=conf;
+       super(nom, niveauDeVie, nonconf);
+       conf=nonconf;
     }
 }
