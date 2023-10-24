@@ -9,5 +9,16 @@ package tp3_heroic_fantasy_cantie_pauline;
  * @author canti
  */
 public class Magicien extends Personnage{
+    boolean conf;
     
+    public boolean isConf(){
+        return conf;
+    }
+    public void setConf(boolean conf){
+        this.conf=conf;
+    }
+    public Magicien (String nom, int niveauDeVie, boolean nonconf){
+       super(nom, niveauDeVie);
+       nonconf=conf;
+    }
 }

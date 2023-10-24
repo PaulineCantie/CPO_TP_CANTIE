@@ -28,12 +28,30 @@ public class TP3_Heroic_fantasy_CANTIE_Pauline {
         armes.add(Epee2);
         armes.add(Baton1);
         armes.add(Baton2);
-        
+               
         for (int i=0; i < armes.size();i++){
             Arme arme = armes.get(i);
             System.out.println("Arme"+(i+1)+": "+arme);
                     
         }
-    }
+        
+        Magicien magicien1= new Magicien("Gandal", 65,false);
+        Magicien magicien2 =new Magicien("Garcimore", 44, true);
+        Guerrier guerrier1= new Guerrier("Conan", 78, false);
+        Guerrier guerrier2= new Guerrier("Lannister", 45, true);
 
+        
+    ArrayList<Personnage> ListePersonnages= new ArrayList<Personnage>();
+    
+    ListePersonnages.add(magicien1);
+    ListePersonnages.add(magicien2);
+    ListePersonnages.add(guerrier1);
+    ListePersonnages.add(guerrier2);
+    
+    System.out.println("liste des personnages: ");
+    for (Personnage personnage : ListePersonnages){
+        System.out.println(personnage);
+    } 
+    
+    }
 }
