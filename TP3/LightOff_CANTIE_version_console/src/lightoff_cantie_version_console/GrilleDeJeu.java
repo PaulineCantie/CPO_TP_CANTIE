@@ -4,6 +4,8 @@
  */
 package lightoff_cantie_version_console;
 
+import java.util.Random;
+
 /**
  *
  * @author canti
@@ -27,15 +29,38 @@ for (int i = 0; i < nbLignes; i++) {
     /**
      * Eteint toutes les cases.
      */
-    public void eteindreToutesLesCellules() {
+    public void eteindreToutesLesCellules(){
         for (int i = 0; i < nbLignes; i++) {
             for (int j = 0; j < nbColonnes; j++) {
                 eteindreCellule(i, j);
             }
         }
     }
-}
-  public activerLigneColonneOuDiagonaleAleaatoire(){
+    private void activerLigneColonneOuDiagonaleAleatoire() {
+        Random random = new Random();
+        int colonne = random.nextInt(nbColonnes);
+
+        for (int ligne = 0; ligne < nbLignes; ligne++) {
+            matriceCellules[ligne][colonne].allumer();   
+        
     } 
-   
- }
+    public void melangerMatriceAleatoirement(int nbTours) {
+        eteindreToutesLesCellules();
+
+        Random random = new Random();
+
+        for (int tour = 0; tour < nbTours; tour++) {
+            int choix = random.nextInt(3); // Générer un nombre aléatoire entre 0 et 2
+
+            if (choix == 0) {
+                activerLigneAleatoire();
+            } else if (choix == 1) {
+                activerColonneAleatoire();
+            } else {
+                activerDiagonaleAleatoire();
+            }
+        } 
+    }
+}
+
+ 
