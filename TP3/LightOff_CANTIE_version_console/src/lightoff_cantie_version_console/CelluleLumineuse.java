@@ -9,7 +9,7 @@ package lightoff_cantie_version_console;
  * @author canti
  */
 public class CelluleLumineuse {
-    private boolean etat;
+    private boolean etat= false;
     
     /**
      * initialise l'état de la cellule en le mettant à 
@@ -23,14 +23,16 @@ public class CelluleLumineuse {
      * inverse l'état actuel de la cellule.
      */
     public void activerCellule(){
-        etat=true;
+        etat=!etat;
     }   
 
     /**
      * eteint la cellule si la cellule est allumée sinon elle n'a pas d'effet.
      */
     public void eteindreCellule(){
-        etat=false;
+        if(etat=true){
+            etat=false;
+        }
     }
 
     /**
@@ -38,17 +40,24 @@ public class CelluleLumineuse {
      * @return
      */
     public boolean estEteint(){
-        return !etat;          
-    }
+        if(etat==true){
+            return(false);
+        }
+        return(true);
+        }          
+    
+
     
     /**
      * renvoie l'état de la cellule actuel.
      * @return
      */
     public boolean getEtat(){
-        return etat;
+        if (etat==true){
+            return (true);
+        }
+        return (false);
     }
-
     /**
      *affiche l'état de la cellule de manière lisible
      * X = etiente
@@ -56,7 +65,7 @@ public class CelluleLumineuse {
      * @return
      */
     public String toString(){
-        if (etat){
+        if (etat==true){
             return"X";
         }
         else{
