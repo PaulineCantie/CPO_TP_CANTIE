@@ -9,42 +9,44 @@ package lightoff_cantie_version_console;
  * @author canti
  */
 public class CelluleLumineuse {
-    private boolean etat= false;
+    private boolean etat;
     
     /**
      * initialise l'état de la cellule en le mettant à 
      * éteinte.
      */
     public CelluleLumineuse(){
-        etat=false;
+        this.etat=false;
     }
 
     /**
      * inverse l'état actuel de la cellule.
      */
     public void activerCellule(){
-        etat=!etat;
+        this.etat=!this.etat;
     }   
 
     /**
      * eteint la cellule si la cellule est allumée sinon elle n'a pas d'effet.
      */
     public void eteindreCellule(){
-        if(etat=true){
-            etat=false;
+        this.etat=false;
         }
-    }
+    
 
     /**
      * vérifie si la cellule est actuellement etteinte.
      * @return
      */
-    public boolean estEteint(){
-        if(etat==true){
-            return(false);
-        }
-        return(true);
-        }          
+    public boolean estEteint() {
+
+        return !this.etat;
+
+    }
+    public boolean estAllumee(){
+    return etat;
+}
+          
     
 
     
@@ -52,11 +54,10 @@ public class CelluleLumineuse {
      * renvoie l'état de la cellule actuel.
      * @return
      */
-    public boolean getEtat(){
-        if (etat==true){
-            return (true);
-        }
-        return (false);
+    public boolean getEtat() {
+
+        return this.etat;
+
     }
     /**
      *affiche l'état de la cellule de manière lisible

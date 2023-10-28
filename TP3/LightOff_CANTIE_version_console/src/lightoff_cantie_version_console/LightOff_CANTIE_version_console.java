@@ -15,11 +15,16 @@ public class LightOff_CANTIE_version_console {
      */
     public static void main(String[] args) {
         
-    Partie nouvelle_parties=new Partie();
-    nouvelle_parties.lancerPartie();  
-    }
+        Partie partie = new Partie();
+        partie.initialiserPartie();
+        partie.lancerPartie();
 
-   
-}  
-      
+ 
+
+  
+
+}
+
+}
+
     
