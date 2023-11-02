@@ -12,62 +12,73 @@ import java.util.Scanner;
  */
 public class Partie {
     
-    GrilleDeJeu grille;
-    int nbCoups;
-
- 
-
+GrilleDeJeu grille = new GrilleDeJeu(10,10);
+     int nbCoups;
     public Partie() {
-        grille = new GrilleDeJeu(10, 10);
-        nbCoups = 0;
+        int nbCoups = 0;
     }
-
- 
-
-    public void initialiserPartie() {
+   
+        public void initialiserPartie() {
         grille.melangerMatriceAleatoirement(10);
-    }
-
- 
-
-    public static void main(String[] args) {
-        Partie partie = new Partie();
-        partie.initialiserPartie();
-        partie.lancerPartie();
-    }
-
- 
-
+        }
+       
+    /**
+     * Lance la partie et ecrit le message de lancement du jeu
+     *  Tant que la grille ne sera pas etainte entierement la partie ne sera pas finie
+     *  Il y a 3 actions possibles:
+     *  1) allumer une ligne : L
+     *  2) allumer une colonne : C
+     *  3) allummer une diagonale: D
+     *  Il renvoie le nombre coups final une fois la grille etainte.
+     */
     public void lancerPartie() {
+           initialiserPartie();
+
         Scanner scanner = new Scanner(System.in);
         System.out.println("Bienvenue dans le jeu LightOff!");
-        System.out.println("Voici l'état initial de la grille :");
-        System.out.println(grille);
 
  
-
         while (!grille.cellulesToutesEteintes()) {
-            System.out.println("Coup " + (nbCoups + 1));
-            System.out.println("Entrez la ligne : ");
-            int ligne = scanner.nextInt();
-            System.out.println("Entrez la colonne : ");
-            int colonne = scanner.nextInt();
-            grille.activerLigneDeCellules(ligne);
-            grille.activerColonneDeCellules(colonne);
-
- 
-
-            nbCoups++;
-            System.out.println("Nombre de coups joués : " + nbCoups);
-            System.out.println("État de la grille après le coup :");
+            System.out.println("Grille actuelle :");
             System.out.println(grille);
 
+ 
+
+            System.out.println("Entrez un coup (L pour ligne, C pour colonne ou D pour diagonale) :");
+
+            String coup = scanner.nextLine();
+            int nb = scanner.nextInt();
+ 
+
+
+            switch (coup) {
+                case "L":
+                    grille.activerLigneDeCellules(nb); // Par exemple, vous pouvez activer la première ligne
+                    break;
+
+                case "C":
+                    grille.activerColonneDeCellules(nb); // Par exemple, vous pouvez activer la première colonne
+                    break;
+
+                case "D":
+                    grille.activerDiagonaleDescendante(); // Par exemple, vous pouvez activer la diagonale descendante
+                    break;
+
+                default:
+                    System.out.println("Coup invalide. Veuillez entrer 'ligne', 'colonne' ou 'diagonale'.");
+
+            }
+
+            nbCoups++;
+            System.out.println("Nombre de coups : " + nbCoups);
         }
 
-        System.out.println("Bravo ! Vous avez éteint toutes les cellules en " + nbCoups + " coups.");
+        System.out.println("Toutes les cellules sont éteintes! Nombre de coups : " + nbCoups);
+        scanner.close();
 
     }
-
-}
-
- 
+       
+     
+       
+    }
+   
