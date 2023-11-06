@@ -1,3 +1,5 @@
+package lightoff_cantie_version_console;
+
 
 import java.awt.GridLayout;
 import javax.swing.JButton;

@@ -14,7 +14,7 @@ import java.util.Random;
  * @author canti
  */
 public class GrilleDeJeu {
-    private CelluleLumineuse[][] matriceCellules=null;
+    CelluleLumineuse[][] matriceCellules=null;
     private int nbLignes;
     private int nbColonnes; 
 
