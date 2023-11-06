@@ -53,15 +53,15 @@ GrilleDeJeu grille = new GrilleDeJeu(10,10);
 
             switch (coup) {
                 case "L":
-                    grille.activerLigneDeCellules(nb); // Par exemple, vous pouvez activer la première ligne
+                    grille.activerLigneDeCellules(nb);
                     break;
 
                 case "C":
-                    grille.activerColonneDeCellules(nb); // Par exemple, vous pouvez activer la première colonne
+                    grille.activerColonneDeCellules(nb); 
                     break;
 
                 case "D":
-                    grille.activerDiagonaleDescendante(); // Par exemple, vous pouvez activer la diagonale descendante
+                    grille.activerDiagonaleDescendante(); 
                     break;
 
                 default:
@@ -71,11 +71,11 @@ GrilleDeJeu grille = new GrilleDeJeu(10,10);
 
             nbCoups++;
             System.out.println("Nombre de coups : " + nbCoups);
+        
         }
-
         System.out.println("Toutes les cellules sont éteintes! Nombre de coups : " + nbCoups);
         scanner.close();
-
+        
     }
        
      
