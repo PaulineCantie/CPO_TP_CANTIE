@@ -42,27 +42,30 @@ GrilleDeJeu grille = new GrilleDeJeu(10,10);
             System.out.println("Grille actuelle :");
             System.out.println(grille);
 
+            System.out.println("Entrez un coup (1 pour ligne, 2 pour colonne, 3 pour diagonale descendante, 4 pou diagonale montante) :");
+            int choix = scanner.nextInt();
  
-
-            System.out.println("Entrez un coup (L pour ligne, C pour colonne ou D pour diagonale) :");
-
-            String coup = scanner.nextLine();
-            int nb = scanner.nextInt();
- 
-
-
-            switch (coup) {
-                case "L":
-                    grille.activerLigneDeCellules(nb);
+            switch (choix) {
+                case 1:
+                    System.out.println("entrer la ligne que vous souhaitez changer : ");
+                    int ligne = scanner.nextInt();
+                    grille.activerLigneDeCellules(ligne);
+                    break;
+                 
+                case 2:
+                    System.out.println("entrer la colonne que vous souhaitez changer : ");
+                    int colonne = scanner.nextInt();
+                    grille.activerColonneDeCellules(colonne); 
                     break;
 
-                case "C":
-                    grille.activerColonneDeCellules(nb); 
-                    break;
-
-                case "D":
+                case 3:
+                    System.out.println("entrer la diagonale que vous souhaitez changer : ");
                     grille.activerDiagonaleDescendante(); 
                     break;
+                case 4:
+                    System.out.println("entrer la diagonale que vous souhaitez changer : ");
+                    grille.activerDiagonaleMontante(); 
+                    break;                    
 
                 default:
                     System.out.println("Coup invalide. Veuillez entrer 'ligne', 'colonne' ou 'diagonale'.");
