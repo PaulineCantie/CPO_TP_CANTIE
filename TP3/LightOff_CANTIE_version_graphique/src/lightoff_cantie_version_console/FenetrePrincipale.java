@@ -2,6 +2,8 @@ package lightoff_cantie_version_console;
 
 
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import lightoff_cantie_version_console.GrilleDeJeu;
@@ -18,6 +20,7 @@ import lightoff_cantie_version_console.GrilleDeJeu;
 public class FenetrePrincipale extends javax.swing.JFrame {
         GrilleDeJeu grille;
         int nbCoups; 
+        int i;
         
     /**
      * Creates new form FenetrePrincipale
@@ -37,6 +40,35 @@ public class FenetrePrincipale extends javax.swing.JFrame {
                 PanneauGrille.add(bouton_cellule); 
             }
         }
+     getContentPane().add(PanneauGrille, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 
+        nbColonnes*40, nbLignes*40));
+        this.pack();
+        this.revalidate();
+ PanneauBoutonsVerticaux.setLayout(new GridLayout(nbLignes, 1));
+ getContentPane().add(PanneauBoutonsVerticaux, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 1 * 35, nbLignes * 35));
+ this.pack();
+ this.revalidate();
+  // création du panneau de boutons verticaux (pour les lignes) 
+ for (i = 0; i < nbLignes; i++) {
+ JButton bouton_ligne = new JButton();
+ ActionListener ecouteurClick = new ActionListener() {
+ final int j = i;
+ @Override
+ public void actionPerformed(ActionEvent e) {
+ grille.activerLigneDeCellules(j);
+repaint();
+ }
+ };
+ bouton_ligne.addActionListener(ecouteurClick);
+ PanneauBoutonsVerticaux.add(bouton_ligne);
+ 
+ 
+ }
+ 
+ 
+ 
+
+ 
     }
     
     public void initialiserPartie() {
@@ -47,7 +79,6 @@ public class FenetrePrincipale extends javax.swing.JFrame {
  public void Victoire(){
      if (this.grille.cellulesToutesEteintes()==true){
          this.MessageFin.setText("Féliciatation vous avez gagné le jeu !!! ");
-         for (int i=0; i < 23; i++) {
          this.jButton1.setEnabled(false);
          this.jButton2.setEnabled(false);
          this.jButton3.setEnabled(false);
@@ -71,7 +102,9 @@ public class FenetrePrincipale extends javax.swing.JFrame {
          this.jButton21.setEnabled(false);
          this.jButton23.setEnabled(false);
          
+         
      }
+     nbCoups++;
  }   
 
 
@@ -108,6 +141,8 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         jButton21 = new javax.swing.JButton();
         jButton23 = new javax.swing.JButton();
         MessageFin = new javax.swing.JLabel();
+        PanneauBoutonsVerticaux = new javax.swing.JPanel();
+        PanneauBoutonsHorizontaux = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -303,7 +338,39 @@ public class FenetrePrincipale extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton23, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 10, -1, -1));
+
+        MessageFin.setBackground(new java.awt.Color(255, 51, 153));
         getContentPane().add(MessageFin, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 540, 240, 40));
+
+        PanneauBoutonsVerticaux.setBackground(new java.awt.Color(204, 255, 204));
+
+        javax.swing.GroupLayout PanneauBoutonsVerticauxLayout = new javax.swing.GroupLayout(PanneauBoutonsVerticaux);
+        PanneauBoutonsVerticaux.setLayout(PanneauBoutonsVerticauxLayout);
+        PanneauBoutonsVerticauxLayout.setHorizontalGroup(
+            PanneauBoutonsVerticauxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        PanneauBoutonsVerticauxLayout.setVerticalGroup(
+            PanneauBoutonsVerticauxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(PanneauBoutonsVerticaux, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 220, -1, -1));
+
+        PanneauBoutonsHorizontaux.setBackground(new java.awt.Color(255, 204, 204));
+
+        javax.swing.GroupLayout PanneauBoutonsHorizontauxLayout = new javax.swing.GroupLayout(PanneauBoutonsHorizontaux);
+        PanneauBoutonsHorizontaux.setLayout(PanneauBoutonsHorizontauxLayout);
+        PanneauBoutonsHorizontauxLayout.setHorizontalGroup(
+            PanneauBoutonsHorizontauxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        PanneauBoutonsHorizontauxLayout.setVerticalGroup(
+            PanneauBoutonsHorizontauxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(PanneauBoutonsHorizontaux, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 100, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -311,16 +378,18 @@ public class FenetrePrincipale extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
     this.grille.activerLigneDeCellules(0);
     repaint();
-    this.Victoire();
+    Victoire();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
     this.grille.activerLigneDeCellules(1);
-    repaint();    }//GEN-LAST:event_jButton2ActionPerformed
+    repaint();
+    Victoire();    }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
     this.grille.activerLigneDeCellules(2);
-    repaint();      }//GEN-LAST:event_jButton3ActionPerformed
+    repaint();
+    Victoire();      }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
     this.grille.activerLigneDeCellules(3);
@@ -328,78 +397,96 @@ public class FenetrePrincipale extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
     this.grille.activerLigneDeCellules(4);
-    repaint();      }//GEN-LAST:event_jButton5ActionPerformed
+    repaint();
+    Victoire();      }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
     this.grille.activerLigneDeCellules(5);
-    repaint();      }//GEN-LAST:event_jButton6ActionPerformed
+    repaint();
+    Victoire();      }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
     this.grille.activerLigneDeCellules(6);
-    repaint();      }//GEN-LAST:event_jButton7ActionPerformed
+    repaint(); 
+    Victoire();     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
      this.grille.activerLigneDeCellules(7);
-    repaint();  
+    repaint();
+    Victoire();
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
     this.grille.activerLigneDeCellules(8);
-    repaint();      }//GEN-LAST:event_jButton9ActionPerformed
+    repaint();
+    Victoire();      }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
     this.grille.activerLigneDeCellules(9);
-    repaint();      }//GEN-LAST:event_jButton10ActionPerformed
+    repaint();
+    Victoire();      }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
     this.grille.activerColonneDeCellules(0);
-    repaint();         
+    repaint();
+    Victoire();
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
     this.grille.activerColonneDeCellules(1);
-    repaint();      }//GEN-LAST:event_jButton12ActionPerformed
+    repaint(); 
+    Victoire();     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
     this.grille.activerColonneDeCellules(2);
-    repaint();      }//GEN-LAST:event_jButton13ActionPerformed
+    repaint(); 
+    Victoire();     }//GEN-LAST:event_jButton13ActionPerformed
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
     this.grille.activerColonneDeCellules(3);
-    repaint();      }//GEN-LAST:event_jButton14ActionPerformed
+    repaint(); 
+    Victoire();     }//GEN-LAST:event_jButton14ActionPerformed
 
     private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
     this.grille.activerColonneDeCellules(4);
-    repaint();      }//GEN-LAST:event_jButton15ActionPerformed
+    repaint(); 
+    Victoire();     }//GEN-LAST:event_jButton15ActionPerformed
 
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
     this.grille.activerColonneDeCellules(5);
-    repaint();      }//GEN-LAST:event_jButton16ActionPerformed
+    repaint(); 
+    Victoire();     }//GEN-LAST:event_jButton16ActionPerformed
 
     private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
     this.grille.activerColonneDeCellules(6);
-    repaint();      }//GEN-LAST:event_jButton17ActionPerformed
+    repaint(); 
+    Victoire();     }//GEN-LAST:event_jButton17ActionPerformed
 
     private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
     this.grille.activerColonneDeCellules(7);
-    repaint();      }//GEN-LAST:event_jButton18ActionPerformed
+    repaint(); 
+    Victoire();     }//GEN-LAST:event_jButton18ActionPerformed
 
     private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
     this.grille.activerColonneDeCellules(8);
-    repaint();      }//GEN-LAST:event_jButton19ActionPerformed
+    repaint();
+    Victoire();      }//GEN-LAST:event_jButton19ActionPerformed
 
     private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
     this.grille.activerColonneDeCellules(9);
-    repaint();      }//GEN-LAST:event_jButton20ActionPerformed
+    repaint();
+    Victoire();      }//GEN-LAST:event_jButton20ActionPerformed
 
     private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
     this.grille.activerDiagonaleDescendante();
-    repaint();                                              
+    repaint();
+    Victoire();
     }//GEN-LAST:event_jButton21ActionPerformed
 
     private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton23ActionPerformed
     this.grille.activerDiagonaleMontante(); 
-    repaint();        }//GEN-LAST:event_jButton23ActionPerformed
+    repaint(); 
+    Victoire();       }//GEN-LAST:event_jButton23ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -438,6 +525,8 @@ public class FenetrePrincipale extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel MessageFin;
+    private javax.swing.JPanel PanneauBoutonsHorizontaux;
+    private javax.swing.JPanel PanneauBoutonsVerticaux;
     private javax.swing.JPanel PanneauGrille;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
