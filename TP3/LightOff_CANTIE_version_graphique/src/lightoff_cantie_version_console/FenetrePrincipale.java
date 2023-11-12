@@ -3,11 +3,9 @@ package lightoff_cantie_version_console;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.GridLayout;
-import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import lightoff_cantie_version_console.GrilleDeJeu;
 
@@ -126,8 +124,6 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         }
         nbCoups++;
     }
-        
-      
 
     /**
      * This method is called from within the constructor to initialize the form.
