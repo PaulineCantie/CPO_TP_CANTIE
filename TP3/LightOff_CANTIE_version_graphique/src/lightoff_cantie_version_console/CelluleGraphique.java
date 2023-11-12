@@ -4,6 +4,7 @@
  */
 package lightoff_cantie_version_console;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import javax.swing.JButton;
 
@@ -23,9 +24,26 @@ public class CelluleGraphique extends JButton {
         this.celluleLumineuseAssociee = celluleLumineuseAssociee;
     }
 
- @Override
- protected void paintComponent(Graphics g) {
-    super.paintComponent(g); 
-    this.setText(celluleLumineuseAssociee.toString());
+@Override
+
+        protected void paintComponent(Graphics g) {
+            super.paintComponent(g);
+            this.setText(celluleLumineuseAssociee.toString());
+            if (celluleLumineuseAssociee.estAllumee()) {
+                this.setBackground(new Color(120, 90, 10));
+                this.setForeground(Color.WHITE);
+            }
+            else {
+                this.setBackground(new Color(150, 10, 140));
+                this.setForeground(Color.WHITE);
+
+            }
+
+           
+
+            
+
  }
+
+       
 }
