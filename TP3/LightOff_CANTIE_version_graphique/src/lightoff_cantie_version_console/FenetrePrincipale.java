@@ -25,6 +25,10 @@ public class FenetrePrincipale extends javax.swing.JFrame {
 
     /**
      * Creates new form FenetrePrincipale
+     * Ici, on crée le code pour la fenetre principale
+     * Premièrement , on initialise une nouvelle partie avec 10 lignes et 10 colonnes
+     * On crée ensuite des boutons verticaux (PanneauBoutonsVerticaux) & horizontaux qui vont permettre aux jour de modifer l'état des cellules (PanneauBoutonsHorizontaux).
+     * 
      */
     public FenetrePrincipale() {
         initComponents();
@@ -51,7 +55,6 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         getContentPane().add(PanneauBoutonsVerticaux, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 1 * 40, nbLignes * 40));
         this.pack();
         this.revalidate();
-        // création du panneau de boutons verticaux (pour les lignes) 
         for (i = 0; i < nbLignes; i++) {
             JButton bouton_ligne = new JButton();
             ActionListener ecouteurClick = new ActionListener() {
@@ -111,12 +114,17 @@ public class FenetrePrincipale extends javax.swing.JFrame {
 
     }
  
-    
+    /**
+     * On initialise une nouvelle partie.
+     */
     public void initialiserPartie() {
         grille.eteindreToutesLesCellules();
         grille.melangerMatriceAleatoirement(10);
     }
 
+    /**
+     * Permet d'afficher un message de victoire au joueur quand il a terminé le jeu ( éteint toutes les cellules).
+     */
     public void Victoire() {
         if (this.grille.cellulesToutesEteintes() == true) {
             this.MessageFin.setText("Féliciatation vous avez gagné le jeu !!! ");
