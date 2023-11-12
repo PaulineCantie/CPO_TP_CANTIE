@@ -1,12 +1,11 @@
 package lightoff_cantie_version_console;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.GridLayout;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -122,26 +121,13 @@ public class FenetrePrincipale extends javax.swing.JFrame {
 
     public void Victoire() {
         if (this.grille.cellulesToutesEteintes() == true) {
-            this.MessageFin.setText(FenetreAvecImageSimple);
+            this.MessageFin.setText("Féliciatation vous avez gagné le jeu !!! ");
 
         }
         nbCoups++;
     }
         
-      public class VictoireFrame extends JFrame {
-          public VictoireFrame(){
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(400, 400);
-
-        ImageIcon imageIcon = new ImageIcon("C:/Users/canti/OneDrive/Documents/CPO_TP_persos/Image/confetti-and-colorful-ribbons-celebration-background-template-vector.jpg");
-        JLabel label = new JLabel(imageIcon);
-        getContentPane().add(imageLabel, BorderLayout.CENTER);
-            setLocationRelativeTo(null);
-            setVisible(true);
-
- 
-          }
-        }
+      
 
     /**
      * This method is called from within the constructor to initialize the form.
