@@ -22,6 +22,7 @@ public class FenetrePrincipale extends javax.swing.JFrame {
     GrilleDeJeu grille;
     int nbCoups;
     int i;
+    
 
     /**
      * Creates new form FenetrePrincipale
@@ -123,14 +124,19 @@ public class FenetrePrincipale extends javax.swing.JFrame {
     }
 
     /**
-     * Permet d'afficher un message de victoire au joueur quand il a terminé le jeu ( éteint toutes les cellules).
+     * Permet d'afficher un message de victoire au joueur quand il a terminé le jeu ( éteint toutes les cellules)
+     * Et affiche le nombre de coups nécessaires pour réussir.
      */
     public void Victoire() {
+        nbCoups=+1;
+        nombrecoups.setText("Votre nombre de coups pour cette partie est de "+ nbCoups);      
         if (this.grille.cellulesToutesEteintes() == true) {
-            this.MessageFin.setText("Féliciatation vous avez gagné le jeu !!! ");
-
+        dispose();
+        FenetreVictoire f = new FenetreVictoire();
+        f.setVisible(true);
+        
         }
-        nbCoups++;
+       
     }
 
     /**
