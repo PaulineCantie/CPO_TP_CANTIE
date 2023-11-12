@@ -18,13 +18,24 @@ public class CelluleGraphique extends JButton {
     
     CelluleLumineuse celluleLumineuseAssociee; 
  
+    /**
+     * Crée des cellules graphiques
+     * @param celluleLumineuseAssociee
+     * @param largeur
+     * @param hauteur
+     */
     public CelluleGraphique(CelluleLumineuse celluleLumineuseAssociee, int largeur, int hauteur) {
         this.largeur = largeur;
         this.hauteur = hauteur;
         this.celluleLumineuseAssociee = celluleLumineuseAssociee;
     }
 
-@Override
+    /**
+     * paintcomponent permet de définir deux couleurs de fond pour les cellules en fonction qu'elles soient éteintes ou allumées
+     * ( rose allumée & or eteinte)
+     * @param g
+     */
+    @Override
 
         protected void paintComponent(Graphics g) {
             super.paintComponent(g);
