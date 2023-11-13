@@ -65,11 +65,11 @@ public class FenetrePrincipale extends javax.swing.JFrame {
                 public void actionPerformed(ActionEvent e) {
                     grille.activerLigneDeCellules(j);
                     repaint();
+                    Victoire();
                 }
             };
             bouton_ligne.addActionListener(ecouteurClick);
             PanneauBoutonsVerticaux.add(bouton_ligne);
-
         }
         
         
@@ -94,6 +94,7 @@ public class FenetrePrincipale extends javax.swing.JFrame {
                 public void actionPerformed(ActionEvent e) {
                     grille.activerColonneDeCellules(colonne);
                     repaint();
+                    Victoire();
                 }
                        
 
@@ -107,11 +108,11 @@ public class FenetrePrincipale extends javax.swing.JFrame {
             };
             bouton_colonnes.addActionListener(ecouteurClick);
             PanneauBoutonsHorizontaux.add(bouton_colonnes);
-            
 
         }
         getContentPane().add(jButton21, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 70 * 1, 1 * 40));
         getContentPane().add(jButton23, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 10, 70 * 1, 1 * 40));
+        
 
     }
  
@@ -129,11 +130,11 @@ public class FenetrePrincipale extends javax.swing.JFrame {
      */
     public void Victoire() {
         nbCoups=+1;
-        nombrecoups.setText("Votre nombre de coups pour cette partie est de "+ nbCoups);      
+        //nombrecoups.setText("Votre nombre de coups pour cette partie est de "+ nbCoups);      
         if (this.grille.cellulesToutesEteintes() == true) {
-        dispose();
-        FenetreVictoire f = new FenetreVictoire();
-        f.setVisible(true);
+            dispose();
+            FenetreVictoire f = new FenetreVictoire() ;
+            f.setVisible(true);
         
         }
        
@@ -193,7 +194,7 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         MessageFin.setBackground(new java.awt.Color(255, 51, 153));
         getContentPane().add(MessageFin, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 540, 240, 40));
 
-        PanneauBoutonsVerticaux.setBackground(new java.awt.Color(204, 255, 204));
+        PanneauBoutonsVerticaux.setBackground(new java.awt.Color(204, 204, 255));
 
         javax.swing.GroupLayout PanneauBoutonsVerticauxLayout = new javax.swing.GroupLayout(PanneauBoutonsVerticaux);
         PanneauBoutonsVerticaux.setLayout(PanneauBoutonsVerticauxLayout);
@@ -208,7 +209,7 @@ public class FenetrePrincipale extends javax.swing.JFrame {
 
         getContentPane().add(PanneauBoutonsVerticaux, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 70, 490));
 
-        PanneauBoutonsHorizontaux.setBackground(new java.awt.Color(255, 204, 204));
+        PanneauBoutonsHorizontaux.setBackground(new java.awt.Color(204, 204, 255));
 
         javax.swing.GroupLayout PanneauBoutonsHorizontauxLayout = new javax.swing.GroupLayout(PanneauBoutonsHorizontaux);
         PanneauBoutonsHorizontaux.setLayout(PanneauBoutonsHorizontauxLayout);
@@ -267,7 +268,7 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FenetrePrincipale().setVisible(true);
+                new ACCEUIL().setVisible(true);
             }
         });
     }

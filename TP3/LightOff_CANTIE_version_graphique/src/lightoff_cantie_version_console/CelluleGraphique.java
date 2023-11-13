@@ -41,11 +41,11 @@ public class CelluleGraphique extends JButton {
             super.paintComponent(g);
             this.setText(celluleLumineuseAssociee.toString());
             if (celluleLumineuseAssociee.estAllumee()) {
-                this.setBackground(new Color(120, 90, 10));
+                this.setBackground(new Color(245, 159, 230));
                 this.setForeground(Color.WHITE);
             }
             else {
-                this.setBackground(new Color(150, 10, 140));
+                this.setBackground(new Color(181, 149, 245));
                 this.setForeground(Color.WHITE);
 
             }
